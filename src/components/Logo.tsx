@@ -3,7 +3,7 @@ import { Image } from "@chakra-ui/react";
 
 const Logo = () => {
     return (
-        <Image src={logo} objectFit="scale-down" alt="logo" />
+        <Image src={logo} width='284px' height='36px' marginBottom= {5} alt="Logistics logo" />
     )
 };
 

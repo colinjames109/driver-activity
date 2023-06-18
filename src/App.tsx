@@ -1,8 +1,12 @@
 import { useState } from 'react';
-import { Button, Show, Grid, GridItem } from '@chakra-ui/react';
-import HeaderBar from './assets/HeaderBar';
+import { Button, Show, Grid, GridItem, Text } from '@chakra-ui/react';
+import HeaderBar from './components/HeaderBar';
+import SideMenu from './components/SideMenu';
+import { MenuOption } from './hooks/useMenuOptions';
 
 function App() {
+
+    const [selectedMenuOption, setSelectedMenuOption] = useState<MenuOption | null>(null);
 
     return (
 
@@ -20,16 +24,17 @@ function App() {
                 }}
 
             >
-                <GridItem area='hdr'>
+                <GridItem area='hdr' marginBottom='20px'>
                     <HeaderBar />
                 </GridItem>
                 <Show above="lg">
                     <GridItem area='side-menu' paddingX='10px' >
-                        side menu
+                        <SideMenu onSelectMenuOption={(m) => setSelectedMenuOption(m)} selectedMenuOption={selectedMenuOption} />
                     </GridItem>
                 </Show>
                 <GridItem area='main' >
-                    main area
+                    {!selectedMenuOption || selectedMenuOption.title === 'Home' && <Text>Home</Text>}
+                 
                 </GridItem>
             </Grid>
         </div>
