@@ -29,7 +29,7 @@ const SideMenu = ({ onSelectMenuOption, selectedMenuOption }: Props) => {
         <Box paddingLeft={3} >
             <HStack>
                 <List>
-                    {data.data.map((g: MenuOption) =>
+                    {data.map((g: MenuOption) =>
                         <ListItem key={g.title} paddingY='9px'>
                             <Icon as={iconMap[g.title] }/>
                             <Button

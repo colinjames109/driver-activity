@@ -5,6 +5,6 @@ export interface MenuOption {
 
 import menuOptions from '../data/menu.json'
 
-const useMenuOptions = () => ({ data: menuOptions });
+const useMenuOptions = () => ({ data: menuOptions.data });
 
 export default useMenuOptions;

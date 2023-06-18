@@ -3,6 +3,10 @@ import { Button, Show, Grid, GridItem, Text } from '@chakra-ui/react';
 import HeaderBar from './components/HeaderBar';
 import SideMenu from './components/SideMenu';
 import { MenuOption } from './hooks/useMenuOptions';
+import Home from './components/Home';
+import Drivers from './components/Drivers';
+import Vehicles from './components/Vehicles';
+import About from './components/About';
 
 function App() {
 
@@ -33,8 +37,10 @@ function App() {
                     </GridItem>
                 </Show>
                 <GridItem area='main' >
-                    {!selectedMenuOption || selectedMenuOption.title === 'Home' && <Text>Home</Text>}
-                 
+                    {(!selectedMenuOption || selectedMenuOption.title === 'Home') && <Home />}
+                    {selectedMenuOption?.title === 'Drivers' && <Drivers />}
+                    {selectedMenuOption?.title === 'Vehicles' && <Vehicles  />}
+                    {selectedMenuOption?.title === 'About' && <About />}
                 </GridItem>
             </Grid>
         </div>
