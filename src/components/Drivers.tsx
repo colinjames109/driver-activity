@@ -12,11 +12,11 @@ import {
 } from "@chakra-ui/react";
 
 import useDrivers, { Driver, getTotalDuration } from "../hooks/useDrivers";
+import DailyTraces from "./DailyTraces";
 
 const Drivers = () => {
 
     const { data } = useDrivers();
-
 
     return (
         <TableContainer>
@@ -25,16 +25,17 @@ const Drivers = () => {
                     <Tr>
                         <Th>Driver Name</Th>
                         <Th>Vehicle Reg.</Th>
-                        <Th>Total Activity Duration</Th>
+                        <Th textAlign='center'>Total Activity Duration</Th>
                     </Tr>
                 </Thead>
                 <Tbody>
-                    {data.map(g => 
+                    {data.map(g =>
                         <Tr>
-                        <Td>{g.forename + ' ' + g.surname}</Td>
-                        <Td>{g.vehicleRegistration}</Td>
-                            <Td><Text>{getTotalDuration(g.driverID)}</Text></Td>
-                    </Tr>)}
+                            <Td>{g.forename + ' ' + g.surname}</Td>
+                            <Td>{g.vehicleRegistration}</Td>
+                            <Td textAlign='center'><Text>{getTotalDuration(g.driverID)}</Text></Td>
+                            <Td><DailyTraces driverId={ g.driverID } /></Td>
+                        </Tr>)}
                 </Tbody>
             </Table>
         </TableContainer>

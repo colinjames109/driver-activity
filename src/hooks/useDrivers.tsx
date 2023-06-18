@@ -10,10 +10,11 @@ interface Activity {
     startTime: string,
     type: string,
     duration: number,
+    hasTrace: boolean;
 }
 
 interface Trace {
-    date: Date,
+    date: string,
     activity: Activity[];
 }
 
@@ -31,14 +32,35 @@ export const getTotalDuration = (driverId: number) => {
                 if (activity) {
                     activity.forEach(a => {
                         totalDuration += a.duration;
-                    })
+                    });
                 }
             });
-
         }
     }
 
     return totalDuration;
+};
+
+
+
+export const getDailyTraces = (driverId: number) => {
+
+    const dailyTraces: string | string[] = [];
+
+    var driver = drivers.data.find((x: { driverID: number; }) => x.driverID === driverId);
+
+    if (driver) {
+        let traces = driver.traces;
+        if (traces) {
+            driver.traces.forEach(trace => {
+                if (dailyTraces.indexOf(trace.date) < 0)
+                    dailyTraces.push(trace.date);
+
+            });
+        }
+    }
+
+    return dailyTraces;
 };
 
 
