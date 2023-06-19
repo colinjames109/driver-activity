@@ -2,6 +2,9 @@ import React from 'react';
 import { ChakraProvider, ColorModeScript, extendTheme, type ThemeConfig, } from '@chakra-ui/react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import './index.css';
+
+
 
 const configChakra: ThemeConfig = {
     useSystemColorMode: false,

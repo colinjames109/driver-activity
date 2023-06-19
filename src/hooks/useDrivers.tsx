@@ -1,3 +1,7 @@
+
+import { useEffect, useState } from 'react';
+import drivers from '../data/drivers.json';
+
 export interface Driver {
     driverID: number,
     surname: string,
@@ -63,9 +67,20 @@ export const getDailyTraces = (driverId: number) => {
     return dailyTraces;
 };
 
+const useDrivers = (searchText: string) => {
 
-import drivers from '../data/drivers.json';
+    // To do...
+    //const [] = useState<Driver[]>([]);
 
-const useDrivers = () => ({ data: drivers.data });
+    //console.log(searchText);
+
+    //useEffect(() => {
+
+    //}, []);
+
+    return { data: drivers.data };
+};
+
+
 
 export default useDrivers;

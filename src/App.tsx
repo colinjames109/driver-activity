@@ -7,10 +7,15 @@ import Home from './components/Home';
 import Drivers from './components/Drivers';
 import Vehicles from './components/Vehicles';
 import About from './components/About';
+import SearchInput from './components/SearchInput';
+
+
 
 function App() {
 
     const [selectedMenuOption, setSelectedMenuOption] = useState<MenuOption | null>(null);
+
+    
 
     return (
 
@@ -30,6 +35,7 @@ function App() {
             >
                 <GridItem area='hdr' marginBottom='20px'>
                     <HeaderBar />
+                    
                 </GridItem>
                 <Show above="lg">
                     <GridItem area='side-menu' paddingX='10px' >
